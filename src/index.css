@@ -22,7 +22,7 @@ html {
 }
 
 /* container */
-.container {
+.container__wrap {
   margin: 0 auto;
   max-width: 768px;
 }
