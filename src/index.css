@@ -19,10 +19,19 @@ html {
 :root {
   --main-color: rgb(31, 37, 51);
   --background-color: rgb(233, 237, 246);
+  --test-color: rgb(97, 101, 108);
 }
 
 /* container */
 .container__wrap {
   margin: 0 auto;
   max-width: 768px;
+}
+
+.acc {
+  background-color: var(--background-color);
+}
+
+.test {
+  background-color: var(--test-color);
 }

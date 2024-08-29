@@ -25,7 +25,7 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey }) {
     const isCurrentEventKey = activeEventKey.includes(eventKey);
 
     return (
-        <div onClick={decoratedOnClick}>
+        <div onClick={decoratedOnClick} style={{display: 'flex'}}>
             <svg
                 style={{
                     transition: '0.3s',
@@ -40,31 +40,39 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey }) {
             >
                 <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659" />
             </svg>
+            <p style={{margin: 0}}>{text}</p>
         </div>
     );
 }
+
+const cardStyles = {
+    border: 'none',
+    background: 'rgb(233, 237, 246)'
+}
+
+const text = 'Name of card';
 
 const AccElement = () => {
     const [activeKey, setActiveKey] = useState([]);  // Multiple accordion items can be open
 
     return (
-        <Accordion alwaysOpen={true} activeKey={activeKey}>
-            <Card>
-                <Card.Header>
-                    <ContextAwareToggle eventKey="0" setActiveKey={setActiveKey}>Click me!</ContextAwareToggle>
+        <Accordion alwaysOpen={true} activeKey={activeKey} >
+            <Card style={cardStyles}>
+                <Card.Header style={cardStyles}>
+                    <ContextAwareToggle eventKey="0" setActiveKey={setActiveKey}>{text}</ContextAwareToggle>
                 </Card.Header>
-                <Accordion.Collapse eventKey="0">
+                <Accordion.Collapse eventKey="0" className='acc'>
                     <Card.Body>Hello! I am the body</Card.Body>
                 </Accordion.Collapse>
             </Card>
-            <Card>
-                <Card.Header>
+            {/* <Card style={cardStyles}>
+                <Card.Header style={cardStyles}>
                     <ContextAwareToggle eventKey="1" setActiveKey={setActiveKey}>Click me!</ContextAwareToggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="1">
                     <Card.Body>Hello! I am another body</Card.Body>
                 </Accordion.Collapse>
-            </Card>
+            </Card> */}
         </Accordion>
     );
 }
