@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "subtitle": "Audit / Condition checks",
+      "description": "Exterior of equipment"
+    },
+    {
+      "id": 2,
+      "subtitle": "Audit / Condition checks",
+      "description": "Fuel level"
+    },
+    {
+        "id": 3,
+        "subtitle": "Audit / Condition checks",
+        "description": "Radiator fluid"
+      }
+]
