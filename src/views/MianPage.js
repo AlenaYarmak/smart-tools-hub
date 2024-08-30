@@ -1,12 +1,18 @@
 import React from "react";
 import AccElement from "../components/AccElement";
-import Accordion from 'react-bootstrap/Accordion';
+import mockData from '../assets/data/mockData.json';
 
 const MainPage = () => {
     return (
         <div className="container">
             <div className="container__wrap">
-                <AccElement />
+                {/* <AccElement /> */}
+                {mockData.map(item => (
+                    <AccElement 
+                        subtitle={item.subtitle}
+                        description={item.description}
+                        title={item.title}/>
+                ))}
             </div>
         </div>
     )
