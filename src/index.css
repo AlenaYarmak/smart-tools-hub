@@ -17,11 +17,14 @@ html {
 :root {
   --main-color: rgb(31, 37, 51);
   --background-color: rgb(233, 237, 246);
+  --secondary-color: rgb(255, 255, 255);
+  --subtitle-color: rgb(84, 95, 112);
 }
 
 /* container */
 .container__wrap {
   margin: 0 auto;
+  margin-top: 2rem;
   max-width: 768px;
 }
 
@@ -29,7 +32,28 @@ html {
   background-color: var(--background-color);
 }
 
+.secondary-color {
+  background-color: var(--secondary-color);
+}
+
 .title--fs {
-  font-size: 1.3rem;
-  line-height: 1.6rem;
+  font-size: 2.2rem;
+  line-height: 2.2rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--subtitle-color);
+  font-weight: 400;
+}
+
+.subtitle--spacing {
+  padding-bottom: 1rem;
+}
+
+.text {
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.5rem;
 }

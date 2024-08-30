@@ -25,7 +25,7 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey }) {
     const isCurrentEventKey = activeEventKey.includes(eventKey);
 
     return (
-        <div onClick={decoratedOnClick} className='d-flex'>
+        <div onClick={decoratedOnClick} className='d-flex align-items-center'>
             <svg
                 style={{
                     transition: '0.3s',
@@ -53,12 +53,15 @@ const AccElement = () => {
 
     return (
         <Accordion alwaysOpen={true} activeKey={activeKey} >
-            <Card className='py-2 border-0 background-color'>
-                <Card.Header className='border-0 rounded-5 background-color'>
+            <Card className='py-3 border-0 rounded-5 background-color'>
+                <Card.Header className='border-0 p-2 mx-auto background-color'  style={{width: '98%'}}>
                     <ContextAwareToggle eventKey="0" setActiveKey={setActiveKey}>{text}</ContextAwareToggle>
                 </Card.Header>
-                <Accordion.Collapse eventKey="0" className='background-color rounded-5'>
-                    <Card.Body>Hello! I am the body</Card.Body>
+                <Accordion.Collapse eventKey="0" className='rounded-5'>
+                    <Card.Body className='p-2 m-3 rounded-3 secondary-color'>
+                        <Card.Subtitle className='subtitle subtitle--spacing'>Audit / Condition checks</Card.Subtitle>
+                        <Card.Text className='text'>Exterior of equipment</Card.Text>
+                    </Card.Body>
                 </Accordion.Collapse>
             </Card>
         </Accordion>
