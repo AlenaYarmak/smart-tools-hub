@@ -40,7 +40,7 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey }) {
             >
                 <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659" />
             </svg>
-            <p className='m-0'>{text}</p>
+            <p className='m-0 ps-2 title--fs'>{text}</p>
         </div>
     );
 }
@@ -53,7 +53,7 @@ const AccElement = () => {
 
     return (
         <Accordion alwaysOpen={true} activeKey={activeKey} >
-            <Card className='border-0 background-color'>
+            <Card className='py-2 border-0 background-color'>
                 <Card.Header className='border-0 rounded-5 background-color'>
                     <ContextAwareToggle eventKey="0" setActiveKey={setActiveKey}>{text}</ContextAwareToggle>
                 </Card.Header>
