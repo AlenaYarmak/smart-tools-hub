@@ -58,7 +58,7 @@ const AccElement = () => {
                     <ContextAwareToggle eventKey="0" setActiveKey={setActiveKey}>{text}</ContextAwareToggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0" className='rounded-5'>
-                    <Card.Body className='p-2 m-3 rounded-3 secondary-color'>
+                    <Card.Body className='px-3 py-4 mx-3 my-2 rounded-5 secondary-color'>
                         <Card.Subtitle className='subtitle subtitle--spacing'>Audit / Condition checks</Card.Subtitle>
                         <Card.Text className='text'>Exterior of equipment</Card.Text>
                     </Card.Body>
