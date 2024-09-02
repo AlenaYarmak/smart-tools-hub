@@ -1,10 +1,13 @@
 import React from "react";
 import AccElement from "../components/AccElement";
 import mockData from '../assets/data/mockData.json';
+import Header from "../components/Header";
 
 const MainPage = () => {
     return (
-        <div className="container">
+        <>
+            <Header />
+            <div className="container">
             <div className="container__wrap">
                 {/* <AccElement /> */}
                 {mockData.map(item => (
@@ -15,6 +18,7 @@ const MainPage = () => {
                 ))}
             </div>
         </div>
+        </>
     )
 }
 
