@@ -8,16 +8,15 @@ const MainPage = () => {
         <>
             <Header />
             <div className="container">
-            <div className="container__wrap">
-                {/* <AccElement /> */}
+                <div className="container__wrap m-top">
                 {mockData.map(item => (
                     <AccElement 
                         subtitle={item.subtitle}
                         description={item.description}
                         title={item.title}/>
                 ))}
+                </div>
             </div>
-        </div>
         </>
     )
 }

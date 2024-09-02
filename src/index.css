@@ -24,8 +24,11 @@ html {
 /* container */
 .container__wrap {
   margin: 0 auto;
-  margin-top: 2rem;
   max-width: 768px;
+}
+
+.m-top {
+  margin-top: 2rem;
 }
 
 .background-color {
@@ -64,8 +67,14 @@ html {
   background: var(--secondary-color);
   padding: 1rem 2rem;
   border-bottom: 1px solid rgb(191, 198, 212);
-  height: 60px;
+  height: 65px;
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+/* button */
+.button__fs {
+  font-size: 1.4rem;
+  font-weight: 600;
 }
