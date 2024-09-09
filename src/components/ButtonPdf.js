@@ -8,6 +8,7 @@ const ButtonPdf = () => {
 
     const [arrowStatus, setArrowStatus] = useState(false);
     const [selectedFormat, setSelectedFormat] = useState("PDF");
+    const [hovered, setHovered] = useState(null);
     const openedPosition = 'rotate(0)';
     const defaultPosition = 'rotate(-180deg)';
 
@@ -81,7 +82,16 @@ const ButtonPdf = () => {
         });
       };
 
-
+      const basedStyles = "list-group-item button__fs text-primary bg-white";
+      const hoveredStyle = "list-group-item button__fs text-white bg-primary";
+    
+      const handleMouseEnter = (item) => {
+        setHovered(item);
+      };
+    
+      const handleMouseLeave = () => {
+        setHovered(null);
+      };
 
 
     
@@ -136,13 +146,17 @@ const ButtonPdf = () => {
           <div className="list__buttons">
             <ul className="list-group lh-lg">
               <li 
-                className="list-group-item button__fs text-primary"
-                onClick={() => handleListClick("DOC")}>
+                className={hovered === "DOC" ? hoveredStyle : basedStyles}
+                onClick={() => handleListClick("DOC")}
+                onMouseEnter={() => handleMouseEnter("DOC")}
+                onMouseLeave={handleMouseLeave}>
                 DOC
               </li>
               <li 
-                className="list-group-item button__fs text-primary"
-                onClick={() => handleListClick("PDF")}>
+                className={hovered === "PDF" ? hoveredStyle : basedStyles}
+                onClick={() => handleListClick("PDF")}
+                onMouseEnter={() => handleMouseEnter("PDF")}
+                onMouseLeave={handleMouseLeave}>
                 PDF
               </li> 
             </ul>  
