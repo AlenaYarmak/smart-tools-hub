@@ -21,6 +21,10 @@ html {
   --subtitle-color: rgb(84, 95, 112);
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* container */
 .container__wrap {
   margin: 0 auto;

@@ -83,7 +83,7 @@ const ButtonPdf = () => {
       };
 
       const basedStyles = "list-group-item button__fs text-primary bg-white";
-      const hoveredStyle = "list-group-item button__fs text-white bg-primary";
+      const hoveredStyle = "list-group-item button__fs text-white bg-primary pointer";
     
       const handleMouseEnter = (item) => {
         setHovered(item);
