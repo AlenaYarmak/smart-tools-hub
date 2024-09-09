@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { jsPDF } from "jspdf";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { saveAs } from "file-saver";
 import mockData from "../assets/data/mockData.json";
 
 const ButtonPdf = () => {
+
+    const [arrowStatus, setArrowStatus] = useState(false);
+    const openedPosition = 'rotate(0)';
+    const defaultPosition = 'rotate(-180deg)';
+
+    const showButtons = () => {
+      if (arrowStatus) {
+        setArrowStatus(false);
+      } else {
+        setArrowStatus(true);
+      }
+      console.log(arrowStatus);
+    }
 
     const generatePdf = () => {
         const file = new jsPDF();
@@ -86,11 +99,16 @@ const ButtonPdf = () => {
             </svg>
             DOC
         </button> */}
-        <button 
+        <button
+            onClick={showButtons}
             type="button" 
             class="button__fs btn btn-outline-primary btn-lg py-3 px-4"
             /* onClick={generateDocx} */>
               <svg
+                style={{
+                  transition: '0.3s',
+                  transform: arrowStatus ? openedPosition : defaultPosition
+                }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"

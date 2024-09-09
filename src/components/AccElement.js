@@ -45,9 +45,6 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey, title 
     );
 }
 
-
-const text = 'Name of card';
-
 const AccElement = ({ subtitle, description, title }) => {
     const [activeKey, setActiveKey] = useState([]);  // Multiple accordion items can be open
 
