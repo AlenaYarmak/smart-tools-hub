@@ -78,3 +78,13 @@ html {
   font-size: 1.4rem;
   font-weight: 600;
 }
+
+.list__buttons {
+  position: absolute;
+  bottom: -82px;
+  width: 140px;
+}
+
+.relative {
+  position: relative;
+}
