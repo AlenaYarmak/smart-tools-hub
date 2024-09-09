@@ -4,7 +4,7 @@ import MainPage from './views/MianPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <MainPage />
     </div>
   );

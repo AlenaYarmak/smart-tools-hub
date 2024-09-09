@@ -1,14 +1,14 @@
-import React from "react";
-import AccElement from "../components/AccElement";
+import React from 'react';
+import AccElement from '../components/AccElement';
 import mockData from '../assets/data/mockData.json';
-import Header from "../components/Header";
+import Header from '../components/Header';
 
 const MainPage = () => {
     return (
         <>
             <Header />
-            <div className="container">
-                <div className="container__wrap m-top">
+            <div className='container'>
+                <div className='container__wrap m-top'>
                 {mockData.map(item => (
                     <AccElement 
                         subtitle={item.subtitle}
