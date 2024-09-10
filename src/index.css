@@ -6,7 +6,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -19,6 +19,11 @@ html {
   --background-color: rgb(233, 237, 246);
   --secondary-color: rgb(255, 255, 255);
   --subtitle-color: rgb(84, 95, 112);
+  --button-color: rgb(101, 89, 255);
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 /* container */
@@ -79,6 +84,15 @@ html {
   font-weight: 600;
 }
 
+.button__fs:hover {
+  background-color: var(--background-color);
+  color: var(--button-color)
+}
+
+.button__fs--hover:hover {
+  border-color: var(--button-color);
+}
+
 .list__buttons {
   position: absolute;
   bottom: -82px;
@@ -87,4 +101,25 @@ html {
 
 .relative {
   position: relative;
+}
+
+.button-color {
+  color: var(--button-color);
+  border-color: var(--button-color);
+}
+
+/* menu-item */
+.menu__wrapper {
+  position: absolute;
+  left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.menu__item {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.menu__item:hover {
+  color: var(--button-color);
 }
