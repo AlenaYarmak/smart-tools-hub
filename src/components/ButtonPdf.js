@@ -95,7 +95,7 @@ const ButtonPdf = () => {
       };
     
     return(
-        <div class='btn-group' role='group'>
+        <div className='btn-group' role='group'>
           {selectedFormat === 'PDF' && (
             <Button text="PDF" clickFunction={generatePdf} />
           )}
@@ -105,7 +105,7 @@ const ButtonPdf = () => {
         <button
           onClick={showButtons}
           type='button' 
-          class='button__fs button__fs--hover btn button-color btn-lg py-3 px-4 rounded-end'
+          className='button__fs button__fs--hover btn button-color btn-lg py-3 px-4 rounded-end'
             >
               <svg
                 style={{
