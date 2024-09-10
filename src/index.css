@@ -19,6 +19,7 @@ html {
   --background-color: rgb(233, 237, 246);
   --secondary-color: rgb(255, 255, 255);
   --subtitle-color: rgb(84, 95, 112);
+  --button-color: rgb(101, 89, 255);
 }
 
 .pointer {
@@ -83,6 +84,15 @@ html {
   font-weight: 600;
 }
 
+.button__fs:hover {
+  background-color: var(--background-color);
+  color: var(--button-color)
+}
+
+.button__fs--hover:hover {
+  border-color: var(--button-color);
+}
+
 .list__buttons {
   position: absolute;
   bottom: -82px;
@@ -91,4 +101,9 @@ html {
 
 .relative {
   position: relative;
+}
+
+.button-color {
+  color: var(--button-color);
+  border-color: var(--button-color);
 }

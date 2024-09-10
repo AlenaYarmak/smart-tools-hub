@@ -83,8 +83,8 @@ const ButtonPdf = () => {
         });
       };
 
-      const basedStyles = 'list-group-item button__fs text-primary bg-white';
-      const hoveredStyle = 'list-group-item button__fs text-white bg-primary pointer';
+      const basedStyles = 'list-group-item button__fs bg-white';
+      const hoveredStyle = 'list-group-item button__fs button__fs pointer';
     
       const handleMouseEnter = (item) => {
         setHovered(item);
@@ -93,21 +93,19 @@ const ButtonPdf = () => {
       const handleMouseLeave = () => {
         setHovered(null);
       };
-
-
     
     return(
         <div class='btn-group' role='group'>
           {selectedFormat === 'PDF' && (
-                <Button text="PDF" clickFunction={generatePdf} />
-            )}
+            <Button text="PDF" clickFunction={generatePdf} />
+          )}
           {selectedFormat === 'DOC' && (
             <Button text="DOC" clickFunction={generateDocx} />
           )} 
         <button
-            onClick={showButtons}
-            type='button' 
-            class='button__fs btn btn-outline-primary btn-lg py-3 px-4 rounded-end'
+          onClick={showButtons}
+          type='button' 
+          class='button__fs button__fs--hover btn button-color btn-lg py-3 px-4 rounded-end'
             >
               <svg
                 style={{
@@ -120,7 +118,7 @@ const ButtonPdf = () => {
                 fill='currentColor'
                 className='bi bi-caret-down'
                 viewBox='0 0 16 16'
-            >
+              >
                 <path d='M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659' />
             </svg>
         </button>
