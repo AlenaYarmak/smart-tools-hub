@@ -107,3 +107,19 @@ html {
   color: var(--button-color);
   border-color: var(--button-color);
 }
+
+/* menu-item */
+.menu__wrapper {
+  position: absolute;
+  left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.menu__item {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.menu__item:hover {
+  color: var(--button-color);
+}

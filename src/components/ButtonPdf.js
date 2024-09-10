@@ -97,10 +97,10 @@ const ButtonPdf = () => {
     return(
         <div className='btn-group' role='group'>
           {selectedFormat === 'PDF' && (
-            <Button text="PDF" clickFunction={generatePdf} />
+            <Button text='PDF' clickFunction={generatePdf} />
           )}
           {selectedFormat === 'DOC' && (
-            <Button text="DOC" clickFunction={generateDocx} />
+            <Button text='DOC' clickFunction={generateDocx} />
           )} 
         <button
           onClick={showButtons}
