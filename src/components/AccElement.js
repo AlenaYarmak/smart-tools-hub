@@ -1,4 +1,3 @@
-// AccElement.js
 import React, { useState, useContext, useEffect, forwardRef } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import AccordionContext from 'react-bootstrap/AccordionContext';
@@ -71,7 +70,7 @@ const AccElement = forwardRef(({ subtitle, description, title, index }, ref) => 
 
   return (
     <Accordion ref={ref} className='mb-5' alwaysOpen={true} activeKey={activeKey}>
-      <Card className='py-3 border-0 rounded-5 background-color'>
+      <Card className='py-3 border-0 rounded-4 background-color'>
         <Card.Header className='border-0 p-2 mx-auto background-color' style={{ width: '98%' }}>
           <ContextAwareToggle eventKey='0' setActiveKey={setActiveKey} title={title} />
         </Card.Header>

@@ -24,7 +24,7 @@ const ButtonPdf = () => {
 
     const handleListClick = (format) => {
       setSelectedFormat(format);
-      setArrowStatus(false); // Close the dropdown
+      setArrowStatus(false);
     };
 
     const generatePdf = () => {
@@ -40,10 +40,10 @@ const ButtonPdf = () => {
 
         let yPosition = 50;
         mockData.forEach((item) => {
-            file.text(item.title, 20, yPosition);
-            file.text(item.subtitle, 50, yPosition);
-            file.text(item.description, 120, yPosition);
-            yPosition += 10;
+          file.text(item.title, 20, yPosition);
+          file.text(item.subtitle, 50, yPosition);
+          file.text(item.description, 120, yPosition);
+          yPosition += 10;
         });
 
         file.save('mock-data.pdf');
@@ -95,31 +95,31 @@ const ButtonPdf = () => {
       };
     
     return(
-        <div className='btn-group' role='group'>
-          {selectedFormat === 'PDF' && (
-            <Button text='PDF' clickFunction={generatePdf} />
-          )}
-          {selectedFormat === 'DOC' && (
-            <Button text='DOC' clickFunction={generateDocx} />
-          )} 
-        <button
-          onClick={showButtons}
-          type='button' 
-          className='button__fs button__fs--hover btn button-color btn-lg py-3 px-4 rounded-end'
+      <div className='btn-group' role='group'>
+        {selectedFormat === 'PDF' && (
+          <Button text='PDF' clickFunction={generatePdf} />
+        )}
+        {selectedFormat === 'DOC' && (
+          <Button text='DOC' clickFunction={generateDocx} />
+        )} 
+      <button
+        onClick={showButtons}
+        type='button' 
+        className='button__fs button__fs--hover btn button-color btn-lg py-3 px-4 rounded-end'
+          >
+            <svg
+              style={{
+                transition: '0.3s',
+                transform: arrowStatus ? openedPosition : defaultPosition
+              }}
+              xmlns='http://www.w3.org/2000/svg'
+              width='16'
+              height='16'
+              fill='currentColor'
+              className='bi bi-caret-down'
+              viewBox='0 0 16 16'
             >
-              <svg
-                style={{
-                  transition: '0.3s',
-                  transform: arrowStatus ? openedPosition : defaultPosition
-                }}
-                xmlns='http://www.w3.org/2000/svg'
-                width='16'
-                height='16'
-                fill='currentColor'
-                className='bi bi-caret-down'
-                viewBox='0 0 16 16'
-              >
-                <path d='M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659' />
+              <path d='M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659' />
             </svg>
         </button>
         {arrowStatus && 

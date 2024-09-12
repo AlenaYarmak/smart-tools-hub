@@ -3,6 +3,7 @@ import AccElement from '../components/AccElement'; // Make sure this path is cor
 import mockData from '../assets/data/mockData.json';
 import Header from '../components/Header';
 import MenuItem from '../components/MenuItem';
+import AddSection from '../components/AddSection';
 
 const MainPage = () => {
   const refs = useRef(mockData.map(() => React.createRef()));
@@ -37,6 +38,7 @@ const MainPage = () => {
             />
           ))}
         </div>
+        <AddSection />
       </div>
     </>
   );
