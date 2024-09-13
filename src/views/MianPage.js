@@ -9,6 +9,11 @@ import InputsGroup from '../components/InputsGroup';
 const MainPage = () => {
   
   const [addSection, setAddSection] = useState(false);
+  const [inputValues, setInputValues] = useState({
+    title: '',
+    subtitle: '',
+    description: ''
+  })
   const refs = useRef(mockData.map(() => React.createRef()));
   
   const handleScrollTo = (index) => {
@@ -25,8 +30,16 @@ const MainPage = () => {
     setAddSection(false);
   }
 
+  const handleInputChange = (name, value) => {
+    setInputValues(prevValues => ({
+      ...prevValues,
+      [name]: value
+    }));
+  };
+
   const handleAddSection = () => {
     setAddSection(false);
+    console.log(inputValues);
   }
 
   return (
@@ -54,8 +67,14 @@ const MainPage = () => {
             />
           ))}
         </div>
-        {addSection || <AddSection clickSection={addNewSection}/>}
-        {addSection && <InputsGroup deleteSection={handleDeleteSection} addSection={handleAddSection}/>}
+        {addSection || 
+        <AddSection clickSection={addNewSection}/>}
+        {addSection && 
+        <InputsGroup
+          onInputChange={handleInputChange}
+          inputValues={inputValues}
+          deleteSection={handleDeleteSection} 
+          addSection={handleAddSection}/>}
       </div>
     </>
   );
