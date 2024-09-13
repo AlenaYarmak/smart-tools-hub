@@ -1,17 +1,33 @@
-import React, { useRef } from 'react';
-import AccElement from '../components/AccElement'; // Make sure this path is correct
+import React, { useState, useRef } from 'react';
+import AccElement from '../components/AccElement';
 import mockData from '../assets/data/mockData.json';
 import Header from '../components/Header';
 import MenuItem from '../components/MenuItem';
 import AddSection from '../components/AddSection';
+import InputsGroup from '../components/InputsGroup';
 
 const MainPage = () => {
+  
+  const [addSection, setAddSection] = useState(false);
   const refs = useRef(mockData.map(() => React.createRef()));
+  
   const handleScrollTo = (index) => {
     if (refs.current[index] && refs.current[index].current) {
       refs.current[index].current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const addNewSection = () => {
+    setAddSection(true);
+  }
+
+  const handleDeleteSection = () => {
+    setAddSection(false);
+  }
+
+  const handleAddSection = () => {
+    setAddSection(false);
+  }
 
   return (
     <>
@@ -38,7 +54,8 @@ const MainPage = () => {
             />
           ))}
         </div>
-        <AddSection />
+        {addSection || <AddSection clickSection={addNewSection}/>}
+        {addSection && <InputsGroup deleteSection={handleDeleteSection} addSection={handleAddSection}/>}
       </div>
     </>
   );
