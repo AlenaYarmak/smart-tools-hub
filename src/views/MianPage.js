@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import AccElement from '../components/AccElement';
 import mockData from '../assets/data/mockData.json';
 import Header from '../components/Header';
@@ -9,12 +9,19 @@ import InputsGroup from '../components/InputsGroup';
 const MainPage = () => {
   
   const [addSection, setAddSection] = useState(false);
+  const initialMockData = JSON.parse(sessionStorage.getItem('mockData')) || mockData;
+  const [mockedData, setMockedData] = useState(initialMockData);
   const [inputValues, setInputValues] = useState({
     title: '',
     subtitle: '',
     description: ''
   })
+
   const refs = useRef(mockData.map(() => React.createRef()));
+
+  useEffect(() => {
+    sessionStorage.setItem('mockData', JSON.stringify(mockedData));
+  }, [mockedData]);
   
   const handleScrollTo = (index) => {
     if (refs.current[index] && refs.current[index].current) {
@@ -39,7 +46,11 @@ const MainPage = () => {
 
   const handleAddSection = () => {
     setAddSection(false);
-    console.log(inputValues);
+    setMockedData(prevMockedData => [
+      ...prevMockedData,
+      { ...inputValues, 'id': prevMockedData.length + 1 }
+    ]);
+    console.log(sessionStorage.mockData);
   }
 
   return (
@@ -47,7 +58,7 @@ const MainPage = () => {
       <Header />
       <div className='container'>
         <div className='d-flex flex-column menu__wrapper'>
-          {mockData.map((item, index) => (
+          {mockedData.map((item, index) => (
             <MenuItem 
               onClick={() => handleScrollTo(index)} 
               key={index} 
@@ -56,7 +67,7 @@ const MainPage = () => {
           ))}
         </div>
         <div className='container__wrap m-top'>
-          {mockData.map((item, index) => (
+          {mockedData.map((item, index) => (
             <AccElement
               key={index}
               ref={refs.current[index]}
