@@ -5,9 +5,10 @@ import Header from '../components/Header';
 import MenuItem from '../components/MenuItem';
 import AddSection from '../components/AddSection';
 import InputsGroup from '../components/InputsGroup';
+import generateId from '../utils/generateId';
 
 const MainPage = () => {
-  
+
   const [addSection, setAddSection] = useState(false);
   const initialMockData = JSON.parse(sessionStorage.getItem('mockData')) || mockData;
   const [mockedData, setMockedData] = useState(initialMockData);
@@ -48,7 +49,7 @@ const MainPage = () => {
     setAddSection(false);
     setMockedData(prevMockedData => [
       ...prevMockedData,
-      { ...inputValues, 'id': prevMockedData.length + 1 }
+      { ...inputValues, id: generateId() }
     ]);
     console.log(sessionStorage.mockData);
   }
