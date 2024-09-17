@@ -1,11 +1,11 @@
 import React from 'react';
-import ButtonPdf from './ButtonFormat';
+import ButtonFormat from './ButtonFormat';
 
-const Header = () => {
+const Header = ({ mockedData }) => {
     return(
         <div className='header'>
             <div className='container__wrap d-flex justify-content-end'>
-                <ButtonPdf />
+                <ButtonFormat mockedData={mockedData}/>
             </div>
         </div>
     )

@@ -69,7 +69,7 @@ const MainPage = () => {
 
   return (
     <>
-      <Header />
+      <Header mockedData={mockedData}/>
       <div className='container'>
         <div className='d-flex flex-column menu__wrapper'>
           {mockedData.map((item, index) => (
