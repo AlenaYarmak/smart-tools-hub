@@ -36,6 +36,11 @@ const MainPage = () => {
 
   const handleDeleteSection = () => {
     setAddSection(false);
+    setInputValues({
+      title: '',
+      subtitle: '',
+      description: ''
+    })
   }
 
   const handleInputChange = (name, value) => {
@@ -51,7 +56,11 @@ const MainPage = () => {
       ...prevMockedData,
       { ...inputValues, id: generateId() }
     ]);
-    console.log(sessionStorage.mockData);
+    setInputValues({
+      title: '',
+      subtitle: '',
+      description: ''
+    })
   }
 
   return (
