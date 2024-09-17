@@ -34,7 +34,7 @@ const MainPage = () => {
     setAddSection(true);
   }
 
-  const handleDeleteSection = () => {
+  const emptyDeleteSection = () => {
     setAddSection(false);
     setInputValues({
       title: '',
@@ -61,7 +61,11 @@ const MainPage = () => {
       subtitle: '',
       description: ''
     })
-  }
+  };
+
+  const handleDeleteSection = (id) => {
+    setMockedData((prevMockedData) => prevMockedData.filter(item => item.id !== id));
+  };
 
   return (
     <>
@@ -85,6 +89,7 @@ const MainPage = () => {
               subtitle={item.subtitle}
               description={item.description}
               title={item.title}
+              onDelete={() => handleDeleteSection(item.id)}
             />
           ))}
         </div>
@@ -94,7 +99,7 @@ const MainPage = () => {
         <InputsGroup
           onInputChange={handleInputChange}
           inputValues={inputValues}
-          deleteSection={handleDeleteSection} 
+          deleteSection={emptyDeleteSection} 
           addSection={handleAddSection}/>}
       </div>
     </>
