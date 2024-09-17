@@ -5,7 +5,7 @@ import { Document, Packer, Paragraph, TextRun } from 'docx';
 import { saveAs } from 'file-saver';
 import mockData from '../assets/data/mockData.json';
 
-const ButtonPdf = () => {
+const ButtonFormat = () => {
 
     const [arrowStatus, setArrowStatus] = useState(false);
     const [selectedFormat, setSelectedFormat] = useState('PDF');
@@ -145,4 +145,4 @@ const ButtonPdf = () => {
     )
 }
 
-export default ButtonPdf;
+export default ButtonFormat;
