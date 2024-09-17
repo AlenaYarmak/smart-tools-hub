@@ -18,7 +18,7 @@ const MainPage = () => {
     description: ''
   })
 
-  const refs = useRef(mockData.map(() => React.createRef()));
+  const refs = useRef(mockedData.map(() => React.createRef()));
 
   useEffect(() => {
     sessionStorage.setItem('mockData', JSON.stringify(mockedData));
@@ -28,6 +28,7 @@ const MainPage = () => {
     if (refs.current[index] && refs.current[index].current) {
       refs.current[index].current.scrollIntoView({ behavior: 'smooth' });
     }
+    console.log(index);
   };
 
   const addNewSection = () => {
