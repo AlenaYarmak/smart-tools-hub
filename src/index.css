@@ -149,3 +149,34 @@ html {
   box-shadow: 0 0 0 .5em var(--secondary-color);
   border-radius: .5em;
 }
+
+/* about */
+.about {
+  margin-top: 6em;
+}
+
+.about__content {
+  padding-right: 10em;
+}
+
+.about__title {
+  font-size: 5em;
+  font-weight: 800;
+}
+
+.about__description {
+  padding-top: 1em;
+  font-size: 2em;
+}
+
+.about__list {
+  padding-top: 1em;
+}
+
+.about__button {
+  margin-top: 1em;
+}
+
+.about__photo {
+  max-width: 500px;
+}
