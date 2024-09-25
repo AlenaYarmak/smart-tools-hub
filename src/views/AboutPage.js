@@ -1,9 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import photo from '../assets/img/about.png';
 
 const AboutPage = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/download');
+    }
     return (
         <div className='container'>
             <div className='about d-flex justify-content-between'>
@@ -15,7 +20,11 @@ const AboutPage = () => {
                         <li className='about__list-item'>Different formats available</li>
                         <li className='about__list-item'>Ability to independently form the order of data</li>
                     </ul>
-                    <Button className='about__button' variant="secondary" size="lg">Discover the tool</Button>
+                    <Button
+                        onClick={handleClick}
+                        className='about__button' 
+                        variant="secondary" 
+                        size="lg">Discover the tool</Button>
                 </div>
                 <Image className='about__photo' src={photo} rounded />
             </div>
