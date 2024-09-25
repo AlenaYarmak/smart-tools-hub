@@ -139,3 +139,13 @@ html {
   background-color: var(--button-color);
 }
 
+/* delete button */
+.delete__btn {
+  transition: .3s;
+}
+
+.delete__btn:hover {
+  color: red;
+  box-shadow: 0 0 0 .5em var(--secondary-color);
+  border-radius: .5em;
+}
