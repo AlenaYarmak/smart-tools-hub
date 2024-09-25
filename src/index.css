@@ -78,6 +78,10 @@ html {
   z-index: 1;
 }
 
+.header__container {
+  border-bottom: 1px solid rgb(191, 198, 212);
+}
+
 /* button */
 .button__fs {
   font-size: 1.4rem;
@@ -164,6 +168,10 @@ html {
   font-weight: 800;
 }
 
+.about__word {
+  color: var(--button-color);
+}
+
 .about__description {
   padding-top: 1em;
   font-size: 2em;
@@ -197,6 +205,36 @@ html {
   margin-top: 1em;
 }
 
+.about__photoes {
+  position: relative;
+}
+
+.about__triangle {
+  position: absolute;
+  top: 5%;
+  left: -10%;
+  z-index: 1;
+}
+
+.about__grid {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .about__photo {
+  position: relative;
   max-width: 500px;
+  z-index: 99;
+  animation: animate 5s ease-in-out infinite;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes animate {
+  0%, 100% {
+    border-radius: 60% 55% 40% 70% / 60% 90% 70% 49%;
+  }
+  50% {
+    border-radius: 56% 60% 70% 60% / 50% 60% 56% 70%;
+  }
 }
