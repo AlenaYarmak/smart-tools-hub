@@ -180,11 +180,13 @@ a {
 .about__description {
   padding-top: 1em;
   font-size: 2em;
+  color: var(--subtitle-color);
 }
 
 .about__list {
   padding-top: 1em;
   list-style: none;
+  color: var(--main-color);
 }
 
 .about__list li {
@@ -208,6 +210,14 @@ a {
 
 .about__button {
   margin-top: 1em;
+  padding: .5em 1.2em;
+  font-weight: 500;
+  font-size: 2em;
+  transition: background-color .3s;
+}
+
+.about__button:hover {
+  background-color: var(--button-color)
 }
 
 .about__photoes {
