@@ -235,6 +235,18 @@ a {
   transition: all 1s ease-in-out;
 }
 
+.contact {
+  margin-top: 10em;
+}
+
+.contact__item svg {
+  transition: fill .3s;
+}
+
+.contact__item:hover svg {
+  fill: var(--button-color);
+}
+
 @keyframes animate {
   0%, 100% {
     border-radius: 60% 55% 40% 70% / 60% 90% 70% 49%;
