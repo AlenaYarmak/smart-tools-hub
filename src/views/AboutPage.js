@@ -6,11 +6,14 @@ import photo from '../assets/img/about.png';
 import triangle from '../assets/img/Triangles.png';
 import grid from '../assets/img/Grid.png';
 import Contact from '../components/Contact';
+import getCSSVariable from '../utils/getCSSVariable';
 
 const AboutPage = () => {
     const [gradientPosition, setGradientPosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const titleColor = getCSSVariable('--main-color');
+    const hoverTitleColor = getCSSVariable('--button-color');
     const navigate = useNavigate();
     const handleClick = () => {
         navigate('/download');
@@ -61,9 +64,9 @@ const AboutPage = () => {
                             style={{
                                 position: 'relative',
                                 display: 'inline-block',
-                                color: isHovering ? 'transparent' : 'rgb(31, 37, 51)',
+                                color: isHovering ? 'transparent' : titleColor,
                                 backgroundImage: isHovering
-                                    ? `radial-gradient(circle 150px at ${gradientPosition.x}px ${gradientPosition.y}px, rgb(101, 89, 255), rgb(31, 37, 51))`
+                                    ? `radial-gradient(circle 150px at ${gradientPosition.x}px ${gradientPosition.y}px, ${hoverTitleColor}, ${titleColor})`
                                     : 'none',
                                 WebkitBackgroundClip: isHovering ? 'text' : 'unset',
                                 transition: 'background-position 0.1s ease',
@@ -103,10 +106,11 @@ const AboutPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='container'>
-                <Contact />
+            <div className='contact__wrapper'>
+                <div className='container'>
+                    <Contact />
+                </div>
             </div>
-
         </>
     )
 }

@@ -256,8 +256,13 @@ a {
   transition: all 1s ease-in-out;
 }
 
+.contact__wrapper {
+  background-color: var(--main-color);
+}
+
 .contact {
-  margin-top: 10em;
+  margin-top: 15em;
+  padding: 3em;
 }
 
 .contact__item svg {
