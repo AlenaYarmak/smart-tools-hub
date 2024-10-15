@@ -258,10 +258,12 @@ a {
 
 .contact__wrapper {
   background-color: var(--main-color);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .contact {
-  margin-top: 15em;
   padding: 3em;
 }
 
