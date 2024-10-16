@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AccElement from '../components/AccElement';
 import mockData from '../assets/data/mockData.json';
 import Header from '../components/Header';
@@ -9,6 +10,7 @@ import generateId from '../utils/generateId';
 
 const MainPage = () => {
 
+  const navigate = useNavigate();
   const [addSection, setAddSection] = useState(false);
   const initialMockData = JSON.parse(sessionStorage.getItem('mockData')) || mockData;
   const [mockedData, setMockedData] = useState(initialMockData);
@@ -68,9 +70,15 @@ const MainPage = () => {
     setMockedData((prevMockedData) => prevMockedData.filter(item => item.id !== id));
   };
 
+  const handleClick = () => {
+    navigate('/');
+  };
+
   return (
     <>
-      <Header mockedData={mockedData}/>
+    <div className='header__container'>
+      <Header mockedData={mockedData} clickFunction={handleClick}/>
+    </div>
       <div className='container'>
         <div className='d-flex flex-column menu__wrapper'>
           {mockedData.map((item, index) => (
