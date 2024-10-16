@@ -1,11 +1,13 @@
 import React from 'react';
-import ButtonPdf from './ButtonPdf';
+import ButtonFormat from './ButtonFormat';
+import ReturnButton from '../components/ReturnButton';
 
-const Header = () => {
+const Header = ({ mockedData, clickFunction }) => {
     return(
-        <div className='header'>
+        <div className='header header__wrap'>
+            <ReturnButton className='return-button' onClick={clickFunction} />
             <div className='container__wrap d-flex justify-content-end'>
-                <ButtonPdf />
+                <ButtonFormat mockedData={mockedData}/>
             </div>
         </div>
     )

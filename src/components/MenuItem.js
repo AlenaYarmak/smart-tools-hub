@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MenuItem = ({ text }) => {
+const MenuItem = ({ text, onClick }) => {
     return(
         <>
-            <div className='menu__item pointer subtitle'>{text}</div>
+            <div onClick={onClick} className='menu__item pointer subtitle'>{text}</div>
         </>
     )
 }
