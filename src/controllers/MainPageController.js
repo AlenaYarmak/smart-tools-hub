@@ -44,6 +44,11 @@ export const useMainPageController = () => {
         }
     };
 
+    const emptyDeleteSection = () => {
+        setAddSection(false);
+        inputsController.resetInputs();
+    }
+
     return {
         // State
         addSection,
@@ -55,6 +60,7 @@ export const useMainPageController = () => {
         handleAddSection,
         handleDeleteSection,
         handleClick,
+        emptyDeleteSection,
         // Pass through functions and state from InputsGroupController
         ...inputsController,
     };

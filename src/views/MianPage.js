@@ -19,7 +19,7 @@ const MainPage = () => {
     handleClick,
     inputValues,
     handleInputChange,
-    emptyDeleteSection,
+    emptyDeleteSection
   } = useMainPageController();
 
   return (
