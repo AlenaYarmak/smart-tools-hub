@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from './Button';
-import { jsPDF } from 'jspdf';
-import { Document, Packer, Paragraph, TextRun, Table, TableCell, TableRow, WidthType } from 'docx';
-import { saveAs } from 'file-saver';
-import mockData from '../assets/data/mockData.json';
+import useButtonFormatController from '../controllers/ButtonFormatController';
 
 const ButtonFormat = ({ mockedData }) => {
 
-  const [arrowStatus, setArrowStatus] = useState(false);
+  /* const [arrowStatus, setArrowStatus] = useState(false);
   const [selectedFormat, setSelectedFormat] = useState('PDF');
   const [hovered, setHovered] = useState(null);
   const openedPosition = 'rotate(0)';
@@ -57,7 +54,7 @@ const ButtonFormat = ({ mockedData }) => {
     file.save('mock-data.pdf');
   }
 
-  /* const generateDocx = () => {
+  const generateDocx = () => {
     const doc = new Document({
       sections: [
         {
@@ -89,57 +86,7 @@ const ButtonFormat = ({ mockedData }) => {
     Packer.toBlob(doc).then((blob) => {
       saveAs(blob, 'mock-data.docx');
     });
-  }; */
-
-  const generateDocx = () => {
-    const doc = new Document({
-      sections: [
-        {
-          children: [
-            new Table({width: {
-              size: 100,
-              type: WidthType.PERCENTAGE, // Set width to 100% of the document
-            },
-              rows: mockData.map(
-                (item) =>
-                  new TableRow({
-                    children: [
-                      new TableCell({
-                        width: {
-                          size: 100, // Set cell width to 100% of the table
-                          type: WidthType.PERCENTAGE,
-                        },
-                        children: [
-                          new Paragraph({
-                            text: item.title,
-                            bold: true,
-                            size: 24,
-                          }),
-                          new Paragraph({
-                            text: `\n${item.subtitle}`,
-                            italics: true,
-                            size: 20,
-                          }),
-                          new Paragraph({
-                            text: `\n${item.description}\n`,
-                            size: 16,
-                          }),
-                        ],
-                      }),
-                    ],
-                  })
-              ),
-            }),
-          ],
-        },
-      ],
-    });
-  
-    Packer.toBlob(doc).then((blob) => {
-      saveAs(blob, 'mock-data.docx');
-    });
   };
-  
 
   const basedStyles = 'list-group-item button__fs bg-white';
   const hoveredStyle = 'list-group-item button__fs button__fs pointer';
@@ -150,7 +97,22 @@ const ButtonFormat = ({ mockedData }) => {
 
   const handleMouseLeave = () => {
     setHovered(null);
-  };
+  }; */
+  const {
+    arrowStatus,
+    selectedFormat,
+    hovered,
+    openedPosition,
+    defaultPosition,
+    showButtons,
+    handleListClick,
+    generatePdf,
+    generateDocx,
+    basedStyles,
+    hoveredStyle,
+    handleMouseEnter,
+    handleMouseLeave,
+  } = useButtonFormatController({ mockedData });
 
   return (
     <div className='btn-group bg-white' role='group'>
