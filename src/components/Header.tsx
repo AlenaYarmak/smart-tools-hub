@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonFormat from './ButtonFormat';
-import ReturnButton from '../components/ReturnButton';
+import ReturnButton from './ReturnButton';
 
 const Header = ({ mockedData, handleClick }) => {
     return(
