@@ -7,7 +7,7 @@ export const useInputsGroupController = () => {
         description: ''
     })
 
-    const handleInputChange = (name, value) => {
+    const handleInputChange = (name: string, value: any) => {
         setInputValues(prevValues => ({
           ...prevValues,
           [name]: value

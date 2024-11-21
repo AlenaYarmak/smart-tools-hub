@@ -5,6 +5,7 @@ import AccElement from '../components/AccElement';
 import AddSection from '../components/AddSection';
 import InputsGroup from '../components/InputsGroup';
 import { useMainPageController } from '../controllers/MainPageController';
+import { MockedDataItem } from '../types/MockedDataItem';
 
 const MainPage = () => {
 
@@ -29,12 +30,12 @@ const MainPage = () => {
       </div>
       <div className='container'>
         <div className='d-flex flex-column menu__wrapper'>
-          {mockedData.map((item, index) => (
+          {mockedData.map((item: MockedDataItem, index: number) => (
             <MenuItem onClick={() => handleScrollTo(index)} key={index} text={item.title} />
           ))}
         </div>
         <div className='container__wrap m-top'>
-          {mockedData.map((item, index) => (
+          {mockedData.map((item: MockedDataItem, index: number) => (
             <AccElement
               key={item.id}
               ref={refs.current[index]}

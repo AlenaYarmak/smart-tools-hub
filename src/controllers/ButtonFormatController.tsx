@@ -6,7 +6,7 @@ import mockedData from '../assets/data/mockData.json';
 const useButtonFormatController = () => {
     const [arrowStatus, setArrowStatus] = useState(false);
     const [selectedFormat, setSelectedFormat] = useState('PDF');
-    const [hovered, setHovered] = useState(null);
+    const [hovered, setHovered] = useState<string | null>(null);
     const openedPosition = 'rotate(0)';
     const defaultPosition = 'rotate(-180deg)';
 
@@ -14,7 +14,7 @@ const useButtonFormatController = () => {
         setArrowStatus(!arrowStatus);
     }
 
-    const handleListClick = (format) => {
+    const handleListClick = (format: string) => {
         setSelectedFormat(format);
         setArrowStatus(false);
     };
@@ -22,7 +22,7 @@ const useButtonFormatController = () => {
     const basedStyles = 'list-group-item button__fs bg-white';
     const hoveredStyle = 'list-group-item button__fs button__fs pointer';
 
-    const handleMouseEnter = (item) => {
+    const handleMouseEnter = (item: string) => {
         setHovered(item);
     };
 

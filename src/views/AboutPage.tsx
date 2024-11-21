@@ -19,7 +19,7 @@ const AboutPage = () => {
     const handleClick = () => {
         navigate('/download');
     }
-    const handleMouseMove = (event) => {
+    const handleMouseMove = (event: any) => {
         const rect = event.target.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;

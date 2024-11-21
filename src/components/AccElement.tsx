@@ -8,7 +8,27 @@ import mockData from '../assets/data/mockData.json';
 const openedPosition = 'rotate(0)';
 const defaultPosition = 'rotate(-90deg)';
 
-function ContextAwareToggle({ children, eventKey, callback, setActiveKey, title }) {
+type AccElementProps = {
+  subtitle: string;
+  description: string;
+  title: string;
+  index: number;
+  onDelete: () => void;
+};
+
+type ContextAwareToggleProps = {
+  eventKey: string;
+  callback?: (eventKey: string) => void;
+  setActiveKey: React.Dispatch<React.SetStateAction<string[]>>;
+  title: string;
+};
+
+type DeleteSectionProps = {
+  handleDelete: () => void;
+  className: string;
+}
+
+const ContextAwareToggle: React.FC<ContextAwareToggleProps> = ({ eventKey, callback, setActiveKey, title }) => {
   const { activeEventKey } = useContext(AccordionContext);
 
   const decoratedOnClick = useAccordionButton(
@@ -23,7 +43,8 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey, title 
     }
   );
 
-  const isCurrentEventKey = activeEventKey.includes(eventKey);
+
+  const isCurrentEventKey = (activeEventKey || []).includes(eventKey);
 
   return (
     <div onClick={decoratedOnClick} className='d-flex align-items-center'>
@@ -46,7 +67,7 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveKey, title 
   );
 }
 
-function DeleteSection({ handleDelete, className }) {
+const DeleteSection: React.FC<DeleteSectionProps> = ({ handleDelete, className }) => {
   return (
     <svg onClick={handleDelete} xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' className={`bi bi-trash delete__btn ${className}`} viewBox='0 0 16 16'>
       <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z'/>
@@ -56,19 +77,19 @@ function DeleteSection({ handleDelete, className }) {
 }
 
 // AccElement Component with forwardRef to receive the ref
-const AccElement = forwardRef(({ subtitle, description, title, index, onDelete }, ref) => {
+const AccElement = React.forwardRef<HTMLDivElement, AccElementProps>(({ subtitle, description, title, index, onDelete }, ref) => {
   const [visible, setVisible] = useState(false);
   let classNameIcon = visible ? 'display-block' : 'display-none';
   const accordionArrayLength = mockData.length;
 
   // Function to generate array of strings
-  function generateStringArray(n) {
+  function generateStringArray(n: number): string[] {
     return Array.from({ length: n }, (_, i) => i.toString());
   }
 
   const sessionStorageKey = `accordionState-${index}`;
 
-  const getInitialState = () => {
+  const getInitialState = (): string[] => {
     const savedState = sessionStorage.getItem(sessionStorageKey);
     return savedState ? JSON.parse(savedState) : generateStringArray(accordionArrayLength);
   };

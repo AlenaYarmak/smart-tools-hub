@@ -1,7 +1,14 @@
 import React from 'react';
 
-const InputsGroup = ({ deleteSection, addSection, inputValues, onInputChange }) => {
-    const handleInputChange = (e) => {
+type InputsGroupProps = {
+    deleteSection: any;
+    addSection: any;
+    inputValues: any;
+    onInputChange: any;
+}
+
+const InputsGroup:React.FC<InputsGroupProps> = ({ deleteSection, addSection, inputValues, onInputChange }) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         onInputChange(name, value);
     };
