@@ -1,8 +1,10 @@
 import React from 'react';
 import ButtonFormat from './ButtonFormat';
-import ReturnButton from '../components/ReturnButton';
+import ReturnButton from './ReturnButton';
+import { MockedDataItem } from '../types/MockedDataItem';
 
-const Header = ({ mockedData, handleClick }) => {
+
+const Header = ({ mockedData, handleClick }: {mockedData: any[]; handleClick: () => void}) => {
     return(
         <div className='header header__wrap'>
             <ReturnButton className='return-button' onClick={handleClick} />

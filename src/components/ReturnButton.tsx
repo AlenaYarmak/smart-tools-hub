@@ -2,7 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import getCSSVariable from '../utils/getCSSVariable';
 
-const ReturnButton = ({ onClick }) => {
+type ReturnButtonProps = {
+    onClick: () => void;
+    className?: string;
+};
+
+const ReturnButton: React.FC<ReturnButtonProps> = ({ onClick }) => {
     const [isHovering, setIsHovering] = useState(false);
     const hoverColor = getCSSVariable('--button-color');
     return (

@@ -2,7 +2,11 @@ import React from 'react';
 import Button from './Button';
 import useButtonFormatController from '../controllers/ButtonFormatController';
 
-const ButtonFormat = ({ mockedData }) => {
+type ButtonFormatProps = {
+  mockedData: any[];
+};
+
+const ButtonFormat: React.FC<ButtonFormatProps> = ({ mockedData }) => {
 
   const {
     arrowStatus,
@@ -18,7 +22,7 @@ const ButtonFormat = ({ mockedData }) => {
     hoveredStyle,
     handleMouseEnter,
     handleMouseLeave,
-  } = useButtonFormatController({ mockedData });
+  } = useButtonFormatController();
 
   return (
     <div className='btn-group bg-white' role='group'>

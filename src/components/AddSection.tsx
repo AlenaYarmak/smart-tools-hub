@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddSection = ({ clickSection }) => {
+const AddSection: React.FC<{ clickSection: () => void }> = ({ clickSection }) => {
     return (
         <div onClick={clickSection} className='container__wrap'>
             <div className='section add__section pointer rounded-4 d-flex justify-content-center align-items-center'>

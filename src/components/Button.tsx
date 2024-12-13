@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Button = ({ text, clickFunction }) => {
+interface ButtonProps {
+    text: string;
+    clickFunction: (data?: any) => void;
+  }
+
+const Button: React.FC<ButtonProps> = ({ text, clickFunction }) => {
     return (
         <button 
             type='button' 

@@ -27,18 +27,18 @@ export const useMainPageController = () => {
 
     const handleAddSection = () => {
         setAddSection(false);
-        setMockedData((prevMockedData) => [
+        setMockedData((prevMockedData: any) => [
           ...prevMockedData,
           { ...inputsController.inputValues, id: generateId() },
         ]);
         inputsController.resetInputs();
     };
 
-    const handleDeleteSection = (id) => {
-        setMockedData((prevMockedData) => prevMockedData.filter((item) => item.id !== id));
+    const handleDeleteSection = (id: any) => {
+        setMockedData((prevMockedData: any) => prevMockedData.filter((item: any) => item.id !== id));
     };
 
-    const handleScrollTo = (index) => {
+    const handleScrollTo = (index: any) => {
         if (refs.current[index] && refs.current[index].current) {
           refs.current[index].current.scrollIntoView({ behavior: 'smooth' });
         }

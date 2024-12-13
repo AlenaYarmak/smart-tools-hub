@@ -5,6 +5,6 @@ export const getInitialMockData = () => {
     return storedData ? JSON.parse(storedData) : defaultMockData;
 };
 
-export const saveMockData = (data) => {
+export const saveMockData = (data: any) => {
     sessionStorage.setItem('mockData', JSON.stringify(data));
 };
