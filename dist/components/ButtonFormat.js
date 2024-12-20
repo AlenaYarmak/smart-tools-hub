@@ -7,7 +7,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const Button_1 = __importDefault(require("./Button"));
 const ButtonFormatController_1 = __importDefault(require("../controllers/ButtonFormatController"));
 const ButtonFormat = ({ mockedData }) => {
-    const { arrowStatus, selectedFormat, hovered, openedPosition, defaultPosition, showButtons, handleListClick, generatePdf, generateDocx, basedStyles, hoveredStyle, handleMouseEnter, handleMouseLeave, } = (0, ButtonFormatController_1.default)({ mockedData });
+    const { arrowStatus, selectedFormat, hovered, openedPosition, defaultPosition, showButtons, handleListClick, generatePdf, generateDocx, basedStyles, hoveredStyle, handleMouseEnter, handleMouseLeave, } = (0, ButtonFormatController_1.default)();
     return ((0, jsx_runtime_1.jsxs)("div", { className: 'btn-group bg-white', role: 'group', children: [selectedFormat === 'PDF' && ((0, jsx_runtime_1.jsx)(Button_1.default, { text: 'PDF', clickFunction: generatePdf })), selectedFormat === 'DOC' && ((0, jsx_runtime_1.jsx)(Button_1.default, { text: 'DOC', clickFunction: generateDocx })), (0, jsx_runtime_1.jsx)("button", { onClick: showButtons, type: 'button', className: 'button__fs btn button-color btn-lg py-3 px-4 rounded-end', children: (0, jsx_runtime_1.jsx)("svg", { style: {
                         transition: '0.3s',
                         transform: arrowStatus ? openedPosition : defaultPosition

@@ -22,7 +22,7 @@ const ButtonFormat: React.FC<ButtonFormatProps> = ({ mockedData }) => {
     hoveredStyle,
     handleMouseEnter,
     handleMouseLeave,
-  } = useButtonFormatController();
+  } = useButtonFormatController({ mockedData });
 
   return (
     <div className='btn-group bg-white' role='group'>

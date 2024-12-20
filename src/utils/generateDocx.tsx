@@ -1,12 +1,12 @@
 import { Document, Packer, Paragraph, TextRun } from 'docx';
 import { saveAs } from 'file-saver';
 
-const generateDocx = (mockedData) => {
+const generateDocx = (mockedData: any) => {
     const doc = new Document({
         sections: [
             {
                 children: mockedData.map(
-                    (item) =>
+                    (item: any) =>
                         new Paragraph({
                             children: [
                                 new TextRun({
