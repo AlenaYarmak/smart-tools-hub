@@ -1,4 +1,4 @@
-# About
+# About (in progress)
 
 This project is designed to make it easy to download data in different formats (DOC and PDF). Data can be easily added and deleted, all changes are saved in the session storage.
 
