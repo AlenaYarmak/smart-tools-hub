@@ -62,7 +62,7 @@ const AboutPage = () => {
                                 cursor: 'context-menu'
                             }}
                         >
-                            An important tool for your business</h2>
+                            An important tools for your business</h2>
                         <p className='about__description'>An accessible tool for generating data with the possibility of further downloading.</p>
                         <ul className='about__list'>
                             <li className='about__list-item'>No download limits</li>
@@ -75,11 +75,17 @@ const AboutPage = () => {
                             variant='primary'
                             size='lg'>Discover the tool
                         </Button>
+                        <p className='about__description'>Convenient tool for selecting colors anywhere in the loaded image.</p>
+                        <ul className='about__list'>
+                            <li className='about__list-item'>Fast image loading</li>
+                            <li className='about__list-item'>Convenient dynamic color selection tool</li>
+                            <li className='about__list-item'>Absolute data protection</li>
+                        </ul>
                         <Button
                             onClick={handleNavigateTools}
                             className='about__button'
                             variant='primary'
-                            size='lg'>Discover the tools
+                            size='lg'>Discover the tool
                         </Button>
                     </div>
                     <div className='about__photoes'>

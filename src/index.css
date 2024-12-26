@@ -194,6 +194,7 @@ a {
 }
 
 .about__description {
+  margin-top: 1em;
   padding-top: 1em;
   font-size: 2em;
   color: var(--subtitle-color);
