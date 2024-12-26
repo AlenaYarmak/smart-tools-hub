@@ -41,7 +41,7 @@ const DescribePage = () => {
             <HeaderBlock />
             <div className='container'>
                 <h2 className='title--fs mt-5'>Pick color from image</h2>
-                <div className='border border-warning mt-5 d-flex'>
+                <div className='mt-5 d-flex'>
                     <div className='canvas-wrapper w-50'>
                         <canvas
                             ref={canvasRef}
@@ -50,15 +50,25 @@ const DescribePage = () => {
                             onMouseMove={handleMouseMove}>
                         </canvas>
                     </div>
-                    <div className='color__wrapper d-flex flex-column border border-warning w-50'>
-                        <div className='color__container'>
-                            
+                    <div className='color__wrapper d-flex flex-column w-50'>
+                        <div className='color__container pb-5 pt-3 rounded shadow'>
+                            <h5 className='color__title pb-2 d-flex justify-content-center border-bottom border-light'>Colors</h5>
+                            <div className='color-wrapper d-flex justify-content-center'>
+                                <div className='color py-4 w-75 border border-light rounded'
+                                    style={{'backgroundColor': `${color}`}}></div>
+                            </div>
+                            <div className='hex-wrapper d-flex justify-content-center'>
+                                <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>HEX: </p>
+                            </div>
+                            <div className='rgb-wrapper d-flex justify-content-center'>
+                                <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>RGB: </p>
+                            </div>
                         </div>
-                        <div className='color__upload'>
-                            <Button size='lg' className='btn btn-dark'>
+                        <div className='color__upload d-flex flex-column mt-3 py-5 shadow rounded'>
+                            <Button size='lg' className='btn btn-dark mx-auto'>
                                 Use your image
                             </Button>
-                            <p>You can upload your image.</p>
+                            <p className='text-center mt-3 mb-0'>You can upload your image.</p>
                         </div>
                     </div>
                 </div>
