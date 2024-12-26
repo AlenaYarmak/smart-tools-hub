@@ -4,7 +4,7 @@ import aboutImage from "../assets/img/about.png";
 import Button from 'react-bootstrap/Button';
 
 const DescribePage = () => {
-    const [color, setColor] = useState("None");
+    const [color, setColor] = useState([0, 0, 0]);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -30,11 +30,21 @@ const DescribePage = () => {
         if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
             if (!ctx) return;
             const pixel = ctx.getImageData(x, y, 1, 1).data;
-            const color = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+            const color = [pixel[0], pixel[1], pixel[2]];
             setColor(color);
             console.log(color);
         }
     }
+
+    const rgbToHex = (rgb: [number, number, number]): string => {
+        return '#' + rgb.map(x => {
+          const hex = x.toString(16);
+          return hex.length === 1 ? '0' + hex : hex;
+        }).join('');
+      };
+
+    const testColor = color.toString();
+    console.log(testColor);
 
     return (
         <>
@@ -55,13 +65,14 @@ const DescribePage = () => {
                             <h5 className='color__title pb-2 d-flex justify-content-center border-bottom border-light'>Colors</h5>
                             <div className='color-wrapper d-flex justify-content-center'>
                                 <div className='color py-4 w-75 border border-light rounded'
-                                    style={{'backgroundColor': `${color}`}}></div>
+                                    style={{'backgroundColor': `rgb(${color})`}}></div>
                             </div>
                             <div className='hex-wrapper d-flex justify-content-center'>
-                                <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>HEX: </p>
+                                <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>HEX: {rgbToHex(color as [number, number, number])}</p>
                             </div>
                             <div className='rgb-wrapper d-flex justify-content-center'>
-                                <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>RGB: </p>
+                                <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>RGB:  
+                                    {color.map((item) => item).toString() }</p>
                             </div>
                         </div>
                         <div className='color__upload d-flex flex-column mt-3 py-5 shadow rounded'>
