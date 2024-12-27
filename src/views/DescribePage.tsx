@@ -59,6 +59,7 @@ const DescribePage = () => {
                 <div className='mt-5 d-flex'>
                     <div className='canvas-wrapper w-50'>
                         <canvas
+                            className='canvas'
                             ref={canvasRef}
                             width={400}
                             height={400}

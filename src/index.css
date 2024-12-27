@@ -281,6 +281,11 @@ a {
   fill: var(--button-color);
 }
 
+/* canvas */
+.canvas {
+  cursor: crosshair;
+}
+
 @keyframes animate {
   0%, 100% {
     border-radius: 60% 55% 40% 70% / 60% 90% 70% 49%;
