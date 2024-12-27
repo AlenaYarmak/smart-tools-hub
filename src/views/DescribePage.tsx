@@ -4,7 +4,8 @@ import aboutImage from "../assets/img/about.png";
 import Button from 'react-bootstrap/Button';
 
 const DescribePage = () => {
-    const [color, setColor] = useState([0, 0, 0]);
+    const [color, setColor] = useState([98, 171, 100]);
+    const [staticColor, setStaticColor] = useState([45, 78, 46]);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -36,6 +37,10 @@ const DescribePage = () => {
         }
     }
 
+    const handleMouseClick = () => {
+        setStaticColor(color);
+    }
+
     const rgbToHex = (rgb: [number, number, number]): string => {
         return '#' + rgb.map(x => {
           const hex = x.toString(16);
@@ -57,15 +62,20 @@ const DescribePage = () => {
                             ref={canvasRef}
                             width={400}
                             height={400}
-                            onMouseMove={handleMouseMove}>
+                            onMouseMove={handleMouseMove}
+                            onClick={handleMouseClick}>
                         </canvas>
                     </div>
                     <div className='color__wrapper d-flex flex-column w-50'>
                         <div className='color__container pb-5 pt-3 rounded shadow'>
-                            <h5 className='color__title pb-2 d-flex justify-content-center border-bottom border-light'>Colors</h5>
-                            <div className='color-wrapper d-flex justify-content-center'>
-                                <div className='color py-4 w-75 border border-light rounded'
-                                    style={{'backgroundColor': `rgb(${color})`}}></div>
+                            <h5 className='color__title pb-2 d-flex align-content-center justify-content-center border-bottom border-light'>Colors</h5>
+                            <div className='color-wrapper d-flex flex-column'>
+                                <div className='color__item d-flex justify-content-center'>
+                                    <div className='color py-4 border border-light rounded w-75' style={{'backgroundColor': `rgb(${color})`}}></div>  
+                                </div>
+                                <div className='color__item d-flex justify-content-center'>
+                                    <div className='color py-4 border border-light rounded w-75' style={{'backgroundColor': `rgb(${staticColor})`}}></div>  
+                                </div>
                             </div>
                             <div className='hex-wrapper d-flex justify-content-center'>
                                 <p className='m-0 w-75 px-3 py-3 mt-3 border border-light rounded'>HEX: {rgbToHex(color as [number, number, number])}</p>
