@@ -4,10 +4,10 @@ import MenuItem from '../components/MenuItem';
 import AccElement from '../components/AccElement';
 import AddSection from '../components/AddSection';
 import InputsGroup from '../components/InputsGroup';
-import { useMainPageController } from '../controllers/MainPageController';
+import { useDataExportController } from '../controllers/DataExportController';
 import { MockedDataItem } from '../types/MockedDataItem';
 
-const MainPage = () => {
+const DataExport = () => {
 
   const {
     mockedData,
@@ -21,7 +21,7 @@ const MainPage = () => {
     inputValues,
     handleInputChange,
     emptyDeleteSection
-  } = useMainPageController();
+  } = useDataExportController();
 
   return (
     <>
@@ -62,4 +62,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default DataExport;

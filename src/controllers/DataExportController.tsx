@@ -4,7 +4,7 @@ import { useInputsGroupController } from './InputsGroupController';
 import generateId from '../utils/generateId';
 import { useNavigate } from 'react-router-dom';
 
-export const useMainPageController = () => {
+export const useDataExportController = () => {
     const inputsController = useInputsGroupController();
     const navigate = useNavigate();
 

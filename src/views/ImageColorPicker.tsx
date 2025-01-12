@@ -3,7 +3,7 @@ import HeaderBlock from '../components/HeaderBlock';
 import aboutImage from "../assets/img/about.png";
 import Button from 'react-bootstrap/Button';
 
-const DescribePage = () => {
+const ImageColorPicker = () => {
     const [color, setColor] = useState([98, 171, 100]);
     const [staticColor, setStaticColor] = useState([45, 78, 46]);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -171,4 +171,4 @@ const DescribePage = () => {
     )
 }
 
-export default DescribePage;
+export default ImageColorPicker;
