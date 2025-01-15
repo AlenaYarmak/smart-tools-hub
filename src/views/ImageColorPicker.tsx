@@ -71,10 +71,16 @@ const ImageColorPicker = () => {
                 subcanvas.height
             );
 
+            const centerX = subcanvas.width / 2 - 2.5;
+            const centerY = subcanvas.height / 2 - 2.5;
+            subCtx.strokeStyle = 'black';
+            subCtx.lineWidth = 1;
+            subCtx.strokeRect(centerX, centerY, 10, 10);
+
             subcanvas.style.opacity = '1';
             subcanvas.style.position = 'absolute';
-            subcanvas.style.left = `${event.clientX}px`;
-            subcanvas.style.top = `${event.clientY}px`;
+            subcanvas.style.left = `${event.clientX + 25}px`;
+            subcanvas.style.top = `${event.clientY + 25}px`;
         } else {
             subcanvas.style.opacity = '0';
         }
