@@ -31,6 +31,14 @@ a {
   cursor: pointer;
 }
 
+/* .canvas__block {
+  display: block;
+  background-color: brown;
+}
+
+.canvas__none {
+  display: none;
+}  */
 /* container */
 .container__wrap {
   margin: 0 auto;
@@ -298,6 +306,10 @@ a {
 }
 
 /* canvas */
+/* .canvas-wrapper {
+  max-width: ;
+} */
+
 .canvas {
   cursor: crosshair;
 }
