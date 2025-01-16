@@ -1,6 +1,6 @@
 import { jsPDF } from 'jspdf';
 
-const generatePdf = (mockedData) => {
+const generatePdf = (mockedData: any) => {
     const file = new jsPDF();
 
     file.setFillColor(92, 204, 187);
@@ -13,7 +13,7 @@ const generatePdf = (mockedData) => {
     file.text('Description', 120, 20);
 
     let yPosition = 30;
-    mockedData.forEach((item) => {
+    mockedData.forEach((item: any) => {
         file.setFontSize(10);
         const wrappedTitle = file.splitTextToSize(item.title, 30);
         file.text(wrappedTitle, 20, yPosition);

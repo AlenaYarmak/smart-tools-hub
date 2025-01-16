@@ -1,10 +1,10 @@
 import React from 'react';
 
 type InputsGroupProps = {
-    deleteSection: any;
-    addSection: any;
-    inputValues: any;
-    onInputChange: any;
+    deleteSection: () => void;
+    addSection: () => void;
+    inputValues: Record<string, string>;
+    onInputChange: (name: string, value: string) => void;
 }
 
 const InputsGroup:React.FC<InputsGroupProps> = ({ deleteSection, addSection, inputValues, onInputChange }) => {

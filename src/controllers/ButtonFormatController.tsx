@@ -3,7 +3,7 @@ import generateDocx from '../utils/generateDocx';
 import generatePdf from '../utils/generatePdf';
 import mockedData from '../assets/data/mockData.json';
 
-const useButtonFormatController = () => {
+const useButtonFormatController = ({ mockedData }: { mockedData: any[] }) => {
     const [arrowStatus, setArrowStatus] = useState(false);
     const [selectedFormat, setSelectedFormat] = useState('PDF');
     const [hovered, setHovered] = useState<string | null>(null);
