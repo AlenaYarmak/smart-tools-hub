@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import HeaderBlock from '../components/HeaderBlock';
 import aboutImage from '../assets/img/about.png';
 import Button from 'react-bootstrap/Button';
+import { useDataExportController } from '../controllers/DataExportController';
 
 const ImageColorPicker = () => {
     const [color, setColor] = useState([98, 171, 100]);
@@ -9,6 +10,10 @@ const ImageColorPicker = () => {
     const subcanvasRef = useRef<HTMLCanvasElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const {
+        handleClick
+    } = useDataExportController();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -32,8 +37,6 @@ const ImageColorPicker = () => {
         const rect = canvas.getBoundingClientRect();
         const mouseX = event.clientX - rect.left;
         const mouseY = event.clientY - rect.top;
-
-        console.log(mouseX, mouseY);
 
         if (mouseX >= 0 && mouseX < canvas.width && mouseY >= 0 && mouseY < canvas.height) {
             if (!ctx) return;
@@ -122,6 +125,8 @@ const ImageColorPicker = () => {
                 canvas.width = сanvasWidth;
                 canvas.height = сanvasHeight;
 
+                const tempCtx = reduceImage(canvas, 10);
+
                 // сlear canvas and draw the resized image
                 ctx.clearRect(0, 0, сanvasWidth, сanvasHeight);
 
@@ -132,6 +137,24 @@ const ImageColorPicker = () => {
             reader.readAsDataURL(file);
         }
     };
+
+    const reduceImage = (
+            canvas: HTMLCanvasElement,
+            scaleFactor: number
+        ) => {
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = Math.ceil(canvas.width / scaleFactor);
+        tempCanvas.height = Math.ceil(canvas.height / scaleFactor);
+        console.log(tempCanvas.width);
+        console.log(tempCanvas.height);
+        const tempCtx = tempCanvas.getContext('2d');
+        if (!tempCtx) {
+            return;
+        }
+        tempCtx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+
+        return tempCtx;
+    }
 
     const handleMouseClick = () => {
         setStaticColor(color);
@@ -160,7 +183,7 @@ const ImageColorPicker = () => {
 
     return (
         <>
-            <HeaderBlock />
+            <HeaderBlock handleClick={handleClick}/>
             <div className='container'>
                 <h2 className='title--fs mt-5'>Pick color from image</h2>
                 <div className='mt-5 d-flex'>

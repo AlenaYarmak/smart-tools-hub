@@ -1,13 +1,11 @@
 import React from "react";
 import getCSSVariable from '../utils/getCSSVariable';
-import ReturnButton from '../components/ReturnButton';
 
-const  HeaderBlock = ({ handleClick }: { handleClick: () => void }) => {
+const HeaderMain = () => {
     const logoColor = getCSSVariable('--secondary-color');
     return(
         <div className='header__container'>
                 <div className='container'>
-                <ReturnButton className='return-button' onClick={handleClick} />
                     <div className='logo'>
                         <svg xmlns='http://www.w3.org/2000/svg'
                             width='80'
@@ -25,4 +23,4 @@ const  HeaderBlock = ({ handleClick }: { handleClick: () => void }) => {
     )
 }
 
-export default HeaderBlock;
+export default HeaderMain;

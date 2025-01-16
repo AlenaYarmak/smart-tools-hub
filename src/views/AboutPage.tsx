@@ -8,6 +8,7 @@ import triangle from '../assets/img/Triangles.png';
 import grid from '../assets/img/Grid.png';
 import Contact from '../components/Contact';
 import getCSSVariable from '../utils/getCSSVariable';
+import HeaderMain from '../components/HeaderMain';
 
 const AboutPage = () => {
     const [gradientPosition, setGradientPosition] = useState({ x: 0, y: 0 });
@@ -38,7 +39,7 @@ const AboutPage = () => {
 
     return (
         <>
-            <HeaderBlock />
+            <HeaderMain />
             <div className='container'>
                 <div className='about d-flex justify-content-between'>
                     <div
