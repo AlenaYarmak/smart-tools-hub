@@ -11,14 +11,14 @@ React, Bootstrap, jsPDF, DOCX libraries.
 
 ## Installation
 
-Install create-pdf-app
+Install smart-tools-hub
 
 ```bash
-  git clone https://github.com/AlenaYarmak/create-pdf-app.git
-  cd create-pdf-app
+  git clone https://github.com/AlenaYarmak/smart-tools-hub
+  cd smart-tools-hub
 ```
 
-Install npm
+Install npm packages
 
 ```bash
   npm i
