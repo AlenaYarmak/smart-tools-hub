@@ -1,6 +1,9 @@
-<p align="center">
-  <img src="https://i.postimg.cc/x8LmsYW1/Smart-Tool.png" alt="alt text">
-</p>
+<div align="center">
+  <img src="https://i.postimg.cc/5yJy2zRf/Smart-Tool-1.png" alt="alt text">
+</div>
+<h2 align="center">
+  Empowering Your Workflow
+</h2>
 
 # About
 
