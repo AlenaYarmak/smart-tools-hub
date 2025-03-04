@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://i.postimg.cc/x8LmsYW1/Smart-Tool.png" alt="alt text">
+</p>
+
 # About
 
 This project offers two powerful tools:
