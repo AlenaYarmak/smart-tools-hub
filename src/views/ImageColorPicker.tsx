@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import HeaderBlock from '../components/HeaderBlock';
 import aboutImage from '../assets/img/about.png';
 import Button from 'react-bootstrap/Button';
+import CopyPopup from '../components/CopyPopup';
 import { useDataExportController } from '../controllers/DataExportController';
 
 const ImageColorPicker = () => {
@@ -10,6 +11,10 @@ const ImageColorPicker = () => {
     const subcanvasRef = useRef<HTMLCanvasElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [isCopyVisible, setIsCopyVisible] = useState(false);
+    const [position, setPosition] = useState<{
+        x: number, y: number
+    }>({x: 0, y: 0})
 
     const {
         handleClick
@@ -145,8 +150,6 @@ const ImageColorPicker = () => {
         const tempCanvas = document.createElement('canvas');
         tempCanvas.width = Math.ceil(canvas.width / scaleFactor);
         tempCanvas.height = Math.ceil(canvas.height / scaleFactor);
-        console.log(tempCanvas.width);
-        console.log(tempCanvas.height);
         const tempCtx = tempCanvas.getContext('2d');
         if (!tempCtx) {
             return;
@@ -172,13 +175,33 @@ const ImageColorPicker = () => {
         }).join('');
     };
 
-    /* writeText writes the specified text to the system clipboard */
-    const handleCopyRGB = () => {
-        navigator.clipboard.writeText(`rgb(${staticColor.map((item) => item).toString()})`);
+    const getCoordinates = (e: React.MouseEvent) => {
+        const cursorX = e.clientX;
+        const cursorY = e.clientY;
+        setPosition({x: cursorX, y: cursorY});
+        console.log(`${cursorX} ${cursorY}`)
     }
 
-    const handleCopyHEX = () => {
+    const resetCopyPopup = () => {
+        setTimeout(() =>
+            setIsCopyVisible(false),
+            3000
+        );
+    }
+
+    /* writeText writes the specified text to the system clipboard */
+    const handleCopyRGB = (e: React.MouseEvent) => {
+        navigator.clipboard.writeText(`rgb(${staticColor.map((item) => item).toString()})`);
+        getCoordinates(e);
+        setIsCopyVisible(true);
+        resetCopyPopup();
+    }
+
+    const handleCopyHEX = (e: React.MouseEvent) => {
         navigator.clipboard.writeText(rgbToHex(staticColor as [number, number, number]));
+        getCoordinates(e);
+        setIsCopyVisible(true);
+        resetCopyPopup();
     }
 
     return (
@@ -260,6 +283,10 @@ const ImageColorPicker = () => {
                         </div>
                     </div>
                 </div>
+                {isCopyVisible 
+                                ? <CopyPopup name={'copy-popup--show'} x={position.x} y={position.y}/> 
+                                : <CopyPopup name={'copy-popup--hide'} x={position.x} y={position.y}/>
+                            }
             </div>
         </>
     )
