@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 function App() {
+  console.log('App renders');
   return (
     <div className='App'>
       <Routes>
