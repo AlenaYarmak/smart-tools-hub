@@ -1,4 +1,4 @@
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
@@ -36,6 +36,19 @@ const AboutPage = () => {
         const oppositeY = (container.height / 2 - mouseY) * 0.03;
         setPosition({ x: oppositeX, y: oppositeY });
     };
+
+    const [showSecondSection, setShowSecondSection] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 30) {
+                setShowSecondSection(true);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <>
@@ -76,7 +89,11 @@ const AboutPage = () => {
                             variant='primary'
                             size='lg'>Discover the tool
                         </Button>
-                        <p className='about__description'>Convenient tool for selecting colors anywhere in the loaded image.</p>
+                        <div className='divider__wrapper'>
+                            <div className='divider'></div>
+                        </div>
+                            <div className={`tool-section ${showSecondSection ? "visible" : ''}`}>
+                                <p className='about__description'>Convenient tool for selecting colors anywhere in the loaded image.</p>
                         <ul className='about__list'>
                             <li className='about__list-item'>Fast image loading</li>
                             <li className='about__list-item'>Convenient dynamic color selection tool</li>
@@ -88,6 +105,7 @@ const AboutPage = () => {
                             variant='primary'
                             size='lg'>Discover the tool
                         </Button>
+                            </div>
                     </div>
                     <div className='about__photoes'>
                         <Image className='about__photo' src={photo} />
