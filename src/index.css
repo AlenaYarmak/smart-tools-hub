@@ -315,6 +315,28 @@ a {
   cursor: crosshair;
 }
 
+.copy-popup {
+  font-size: 1.2em;
+  max-width: 10em;
+  padding: 1em;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  border-radius: .5em;
+  position: absolute;
+}
+
+.copy-popup--show {
+  display: inline-block;
+}
+
+.copy-popup--hide {
+  display: none;
+}
+
+.color__container {
+  position: relative;
+}
+
 @keyframes animate {
   0%, 100% {
     border-radius: 60% 55% 40% 70% / 60% 90% 70% 49%;
