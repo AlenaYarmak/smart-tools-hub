@@ -1,7 +1,7 @@
 {
   "name": "create-pdf-app",
   "version": "0.1.0",
-  "homepage": "https://alenayarmak.github.io/smart-tools-hub/",
+  "homepage": "https://AlenaYarmak.github.io/smart-tools-hub/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "typescript": "^5.6.3"
+    "typescript": "^4.9.5"
   }
 }
