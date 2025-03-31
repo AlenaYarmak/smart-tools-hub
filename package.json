@@ -1,7 +1,6 @@
 {
   "name": "create-pdf-app",
   "version": "0.1.0",
-  "homepage": "https://AlenaYarmak.github.io/smart-tools-hub",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -10,7 +9,6 @@
     "bootstrap": "^5.3.3",
     "docx": "^8.5.0",
     "file-saver": "^2.0.5",
-    "gh-pages": "^6.3.0",
     "jspdf": "^2.5.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
@@ -23,9 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.6.3"
   }
 }
